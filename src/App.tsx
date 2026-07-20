@@ -1,8 +1,10 @@
-function App() {
+import InputText  from '@/Components/InputText';
+import type { ChangeEvent } from 'react';
 
+function App() {
   return (
     <>
-      <h1>Hello world</h1>
+      
     </>
   )
 }
