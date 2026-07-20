@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   background-color: #E8ECEB;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1em;
+}
+
+/*Navigation bar*/
+.Nav{
+    color: #2D3E4E;
+    font-size: 1.2rem;
+}
+
+.Nav img {
+    height: 100px;
+    width: 100px;
+}
