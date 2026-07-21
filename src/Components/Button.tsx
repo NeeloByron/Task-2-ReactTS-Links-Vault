@@ -1,7 +1,15 @@
 import React from 'react'
 
-export const Button = () => {
+type buttonProp = {
+  btnText : string,
+  style?: React.CSSProperties,
+  onClick?: () => void,
+}
+
+export const Button: React.FC<buttonProp>= ({btnText, style, onClick}) => {
   return (
-    <div>Button</div>
+    <button style={style} onClick={onClick}> {btnText} </button>
   )
 }
+
+export default Button
