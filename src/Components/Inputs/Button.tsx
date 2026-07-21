@@ -11,6 +11,6 @@ export const Button: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ 
   return (
     <input className={style.btnText} {...rest} />
   )
-}
+} 
 
 export default Button

@@ -5,21 +5,23 @@ type InputProps = {
     value? : string | number,
     style? : React.CSSProperties,
     onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>,
-    ref? : React.Ref<HTMLInputElement | null>,
     type? : HTMLInputTypeAttribute 
     className? : string,
     name? : string,
     label? : string,
-    error? : string
+    error? : string,
+    placeholder? : string
 }
   const InputTtext = React.forwardRef<HTMLInputElement, InputProps> (
-    (props, ref) => {
+    ({label, error, className, ...props }, ref) => {
         return (
-          <div className={style['']}>
-            <div className={style['']}>
-               <input ref={ref} {...props} />
-            </div>
-          </div>
+            <div className={`${style['inputWrap']} ${className || ''}`}>
+              {label && <label className={style['inputLabel']}>{label}</label>}
+        
+              <input  ref={ref} {...props} />
+        
+           {error && <span className={style['error']}>{error}</span>}
+      </div>
         )
     }
   )

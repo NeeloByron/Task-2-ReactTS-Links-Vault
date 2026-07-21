@@ -1,0 +1,24 @@
+.inputWrap {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.InputSpace {
+    background-color: #E8ECEB;
+    border-radius: 4px;
+    color: #2D3E4E;
+    height: 30px;
+    padding: 0px 10px;
+    width: 200px;
+    border: 3px solid #2D3E4E;
+    outline: none;
+}
+
+.inputLabel {
+    color: #2D3E4E;
+}
+
+.error {
+
+}
