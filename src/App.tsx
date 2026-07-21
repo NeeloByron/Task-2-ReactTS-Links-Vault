@@ -32,6 +32,7 @@ function App() {
                <InputText type="Description" placeholder='Enter Description'label="Description:" onChange={handleChange} />
                <InputText type="Tags" placeholder='Enter Optional tags...'label="Optional tags:" onChange={handleChange} />
                <button type='submit'>Submit</button>
+               <btnText type='submit' />
               </form>
 
            </div>

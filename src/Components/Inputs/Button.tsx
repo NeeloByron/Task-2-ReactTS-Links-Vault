@@ -10,6 +10,7 @@ type buttonProp = {
 export const Button: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ ...rest}) => {
   return (
     <input className={style.btnText} {...rest} />
+
   )
 } 
 

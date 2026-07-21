@@ -17,12 +17,11 @@ type InputProps = {
         return (
             <div className={`${style['inputWrap']} ${className || ''}`}>
               {label && <label className={style['inputLabel']}>{label}</label>}
-        
-              <input  ref={ref} {...props} />
-        
-           {error && <span className={style['error']}>{error}</span>}
-      </div>
-        )
+              <input className={`${style['inputField']}`}  ref={ref}  {...props} />
+              {error && <span className={`${style['error']}`}>{error}</span>}
+             </div>
+      )
     }
   )
+  
 export default InputTtext
