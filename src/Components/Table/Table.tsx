@@ -12,9 +12,10 @@ interface LinkItem {
 
 interface TableProps {
   items: LinkItem[];
+  deleteItem: (id: number) => void;
 }
 
-export const Table: React.FC<TableProps> = ({ items }) => {
+export const Table: React.FC<TableProps> = ({ items, deleteItem }) => {
   return (
     <>
       <table className={styles.mainTable}>
@@ -24,6 +25,7 @@ export const Table: React.FC<TableProps> = ({ items }) => {
            <th className={styles.row}>Link (URL)</th>
            <th className={styles.row}>Description</th>
            <th className={styles.row}>Optional Tags</th>
+           <th className={styles.row}>Delete/Edit</th>
          </tr>
          </thead>
             <tbody>
@@ -39,8 +41,8 @@ export const Table: React.FC<TableProps> = ({ items }) => {
               <td className={styles.customtd}>{item.Description}</td>
               <td className={styles.customtd}>{item.OptionalTag}</td>
               <td className={styles.customtd}>
-                <Button btnText='Edit' />
-                <Button btnText='Delete' />
+                <Button btnText='Edit'/>
+                <Button btnText='Delete' onClick={() => item.id && deleteItem(item.id)}/>
               </td>
             </tr>
           ))}

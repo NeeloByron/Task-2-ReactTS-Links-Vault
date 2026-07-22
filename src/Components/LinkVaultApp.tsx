@@ -33,6 +33,12 @@ export const LinkVaultApp = () => {
       setItems([...items, { id: Date.now(), ...item }]);
     };
 
+    {/* Delete */}
+    const deleteItem = (id: number) => {
+      const updateItems = items.filter((items)=> items.id !== id);
+      setItems(updateItems);
+    };
+
   return (
        <>
          <div className={'main'}>
@@ -41,7 +47,7 @@ export const LinkVaultApp = () => {
          </div>
 
          <RecordingMethod addItem={addItem} />
-         <Table items={items} />
+         <Table items={items} deleteItem={deleteItem}/>
        </>
   ); 
 };

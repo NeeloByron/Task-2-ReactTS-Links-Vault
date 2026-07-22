@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@
 body {
    background-color: #E8ECEB;
    color:#2D3E4E;
+   font-family: 'Google+Sans:ital', sans-serif;
 }
 
 .grid-container {
@@ -53,4 +55,21 @@ body {
      gap: 12rem;
 }
 
+.main h1 {
+    font-size: 2.5rem;
+}
 
+Button .edit {
+    background-color: #8CBDB9;
+    color: #2D3E4E;
+    padding: 6px 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+Button:hover {
+    opacity: 0.85;
+}
