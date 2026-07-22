@@ -42,12 +42,20 @@ export const LinkVaultApp = () => {
   return (
        <>
          <div className={'main'}>
-           <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '76px' }} />
-           <h1> Bookmark Link Vault</h1>
-         </div>
+            <header className={'header'}>
+             <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '76px' }} />
+             <h1> Bookmark Link Vault</h1>
+            </header>
+            
+            <main className={'bodyContainer'}>
+             <RecordingMethod addItem={addItem} />
+            </main>
 
-         <RecordingMethod addItem={addItem} />
-         <Table items={items} deleteItem={deleteItem}/>
+            <footer className={'footer'}>
+               <Table items={items} deleteItem={deleteItem}/>
+            </footer>
+
+          </div>
        </>
   ); 
 };

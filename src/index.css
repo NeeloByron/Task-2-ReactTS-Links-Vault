@@ -30,33 +30,35 @@ body {
     }
 }
 
-
-/*Navigation bar*/
-/*HEADER, DISLAY: FLEX,JUSTIFY CONTENT CENTER & ALIGN-ITEM, WIDTH: 100VW
-.Nav{
-    color: #2D3E4E;
-    font-size: 1.2rem;
-}
-
-.Nav img {
-    height: 100px;
-    width: 100px;
-}*/
-
-.mainForm {
-    display: flex;
-    justify-content: center;
-}
-
-.main {
+.main .header {
      display: flex;
      justify-content: center;
      align-items: center;
-     gap: 12rem;
+     width: 100%;
+     padding: 0 20px;
+     box-sizing: border-box;
+     
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;    
+    padding: 20px 0;
 }
 
 .main h1 {
     font-size: 2.5rem;
+}
+
+.bookmarkIcon img {
+  width: auto; 
+  height: auto;
+  max-width: 67px;
+  max-height: 76px;
 }
 
 Button .edit {
