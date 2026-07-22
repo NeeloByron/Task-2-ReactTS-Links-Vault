@@ -3,13 +3,13 @@ import { Table } from '@/Components/Table/Table'
 import bookmarkIcon from '@/assets/bookmark.png'
 import { useState } from 'react';
 
-export const LinkVaultApp = () {
+export const LinkVaultApp = () => {
     const [items, setItems] = useState ([]);
 
     const addItem = (item) => {
-      setItems([...items, { id}])
-    }
+      setItems([...items, { id: Date.now(), ...item}] );
 };
+
   return (
        <>
          <div className={'main'}>
@@ -17,10 +17,10 @@ export const LinkVaultApp = () {
            <h1> BookMark Link Vault</h1>
          </div>
 
-         <RecordingMethod />
-         <Table />
+         <RecordingMethod addItem={addItem} />
+         <Table items={items}/>
        </>
   );
-}
+};
 
 export default LinkVaultApp;

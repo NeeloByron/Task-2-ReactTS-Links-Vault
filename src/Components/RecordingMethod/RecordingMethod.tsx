@@ -1,5 +1,5 @@
 import Button from '@/Components/Inputs/Button'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 function RecordingMethod ({addItem}) {
 
@@ -9,7 +9,7 @@ function RecordingMethod ({addItem}) {
    const [OptionalTag, setOptionaltag] = useState("")
 
    const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
    
 
    if (!Title.trim() || !URL.trim()) {
