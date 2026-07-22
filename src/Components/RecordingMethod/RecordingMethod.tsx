@@ -51,7 +51,7 @@ function RecordingMethod ({ addItem, open, onClose }: RecordingMethodProps) {
         <input type='text' placeholder='Description' className={'title'} value={Description} onChange={(e) => setDescription(e.target.value)} />
         <input type='text' placeholder='Optional Tags' className={'title'} value={OptionalTag} onChange={(e) => setOptionaltag(e.target.value)} />
          <Button type='submit' btnText='Save link' />
-         {/*<button type='button' className='closeBtn' onClick={onClose}>x</button>*/)
+         {/*<button type='button' className='closeBtn' onClick={onClose}>x</button>*/}
       </form>
       </div>
    </>
