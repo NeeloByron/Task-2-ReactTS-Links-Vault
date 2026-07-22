@@ -1,15 +1,10 @@
-import { RecordingMethod } from '@/Components/RecordingMethod/RecordingMethod'
-import { Table } from '@/Components/Table/Table'
-
-
+import LinkVaultApp from '@/Components/LinkVaultApp'
 
 function App() {
   
   return (
     <>
-       <RecordingMethod />
-       <Table />
-    
+      <LinkVaultApp />
     </>
   )
 }

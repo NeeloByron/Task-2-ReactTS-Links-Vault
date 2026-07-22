@@ -45,3 +45,12 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.main {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 12rem;
+}
+
+
