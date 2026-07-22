@@ -6,3 +6,7 @@
     width: 860px;
     border-radius: 0.25rem; 
 }
+
+.customtd {
+    padding: 1rem;
+}

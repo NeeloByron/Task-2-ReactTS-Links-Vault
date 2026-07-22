@@ -1,5 +1,4 @@
 import React from 'react'
-import style from '@/Components/Inputs/Input.module.css'
 
 type buttonProp = {
   btnText : string,

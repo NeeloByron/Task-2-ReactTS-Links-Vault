@@ -30,7 +30,7 @@ body {
 
 
 /*Navigation bar*/
-/*HEADER, DISLAY: FLEX,JUSTIFY CONTENT CENTER & ALIGN-ITEM, WIDTH: 100VW*/
+/*HEADER, DISLAY: FLEX,JUSTIFY CONTENT CENTER & ALIGN-ITEM, WIDTH: 100VW
 .Nav{
     color: #2D3E4E;
     font-size: 1.2rem;
@@ -39,4 +39,9 @@ body {
 .Nav img {
     height: 100px;
     width: 100px;
+}*/
+
+.mainForm {
+    display: flex;
+    justify-content: center;
 }
