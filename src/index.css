@@ -51,7 +51,7 @@ body {
 }
 
 .main h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .bookmarkIcon img {
@@ -61,7 +61,31 @@ body {
   max-height: 76px;
 }
 
-Button .edit {
+/*main body*/
+.bodyContainer {
+    width: 100%;
+    min-width: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (max-width: 480px) {
+    .bodyContainer {
+        padding: 20px 12px;
+    }
+}
+
+Button  {
     background-color: #8CBDB9;
     color: #2D3E4E;
     padding: 6px 16px;
@@ -75,3 +99,14 @@ Button .edit {
 Button:hover {
     opacity: 0.85;
 }
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+

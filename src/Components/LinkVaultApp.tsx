@@ -2,6 +2,7 @@ import  RecordingMethod  from '@/Components/RecordingMethod/RecordingMethod'
 import { Table } from '@/Components/Table/Table'
 import bookmarkIcon from '@/assets/bookmark.png'
 import { useEffect, useState } from 'react';
+import Button from './Inputs/Button';
 
 interface LinkItem {
   id?: number;
@@ -12,22 +13,27 @@ interface LinkItem {
 }
 
 export const LinkVaultApp = () => {
-    const [items, setItems] = useState<LinkItem[]>([]);
+     const [items, setItems] = useState<LinkItem[]>(() => {
+      const rawData = localStorage.getItem("items");
+      if (rawData) {
+        try {
+          return JSON.parse(rawData);
+        } catch {
+          return [];
+        }
+      }
+      return [];
+    });
+    
+    const [searchTerm, setSearchTerm] = useState("");
+    const [modalOpen, setModalOpen] = useState("");
 
     {/* saving data*/}
      useEffect(() => {
       localStorage.setItem ("items", JSON.stringify(items))
      }, [items]);
 
-     {/*load data from the local storage*/}
-      useEffect(() => {
-      const rawData = localStorage.getItem("items");
-      if (rawData) {
-        const storedItems = JSON.parse(rawData);
-        setItems(storedItems);
-       }
-      }, []);
-
+  
      {/*Add the data*/}
     const addItem = (item: LinkItem) => {
       setItems([...items, { id: Date.now(), ...item }]);
@@ -39,6 +45,29 @@ export const LinkVaultApp = () => {
       setItems(updateItems);
     };
 
+    {/*data sequence*/}
+    const filteredItems = items.filter((item) => {
+      const search = searchTerm.toLowerCase();
+      if (!search) return true;
+      return (
+        item.Title.toLowerCase().includes(search) ||
+        item.URL.toLowerCase().includes(search) ||
+        item.Description.toLowerCase().includes(search) ||
+        item.OptionalTag.toLowerCase().includes(search) 
+      );
+    });
+
+    {/*search input*/}
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.target.value);
+    };
+
+    {/*clear*/}
+    const clearSearch = () => {
+      setSearchTerm("");
+    };
+
+
   return (
        <>
          <div className={'main'}>
@@ -48,11 +77,24 @@ export const LinkVaultApp = () => {
             </header>
             
             <main className={'bodyContainer'}>
-             <RecordingMethod addItem={addItem} />
+             <RecordingMethod addItem={addItem} open={modalOpen} />
+               <div className={'seachContainer'}>
+              <input type='text' placeholder='Search links...' value={searchTerm} onChange={handleSearch} />
+
+              {searchTerm && (
+                <button onClick={clearSearch} className='clearBtn'>
+                  ✕
+                </button>
+              )}
+              </div>
+              <Button type='button' btnText='+ Add link' onClick={() => setModalOpen(true)} />
             </main>
 
             <footer className={'footer'}>
                <Table items={items} deleteItem={deleteItem}/>
+
+               {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
+               {items.length === 0 && (<p>Empty links, Add your first link </p>)}
             </footer>
 
           </div>
