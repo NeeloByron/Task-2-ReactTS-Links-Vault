@@ -7,11 +7,10 @@ type buttonProp = {
   onClick?: () => void,
 }
 
-export const Button: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({ ...rest}) => {
+export const Button: React.FC<buttonProp>= ({btnText, style, onClick}) => {
   return (
-    <input className={style.btnText} {...rest} />
-
+    <button style={style} onClick={onClick}>{btnText}</button>
   )
-} 
+}
 
 export default Button
