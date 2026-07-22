@@ -43,7 +43,7 @@ function RecordingMethod ({ addItem }: RecordingMethodProps) {
   return (
    <>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <div className='mainForm'>
         <input type='text' placeholder='Title' className={'title'} value={Title} onChange={(e) => setTitle(e.target.value)} />
         <input type='url' placeholder= 'Link (URL)' className={'title'} value={URL} onChange={(e) => setUrl(e.target.value)} />

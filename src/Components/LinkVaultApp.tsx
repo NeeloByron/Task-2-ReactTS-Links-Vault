@@ -1,7 +1,7 @@
 import  RecordingMethod  from '@/Components/RecordingMethod/RecordingMethod'
 import { Table } from '@/Components/Table/Table'
 import bookmarkIcon from '@/assets/bookmark.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface LinkItem {
   id?: number;
@@ -14,6 +14,21 @@ interface LinkItem {
 export const LinkVaultApp = () => {
     const [items, setItems] = useState<LinkItem[]>([]);
 
+    {/* saving data*/}
+     useEffect(() => {
+      localStorage.setItem ("items", JSON.stringify(items))
+     }, [items]);
+
+     {/*load data from the local storage*/}
+      useEffect(() => {
+      const rawData = localStorage.getItem("items");
+      if (rawData) {
+        const storedItems = JSON.parse(rawData);
+        setItems(storedItems);
+       }
+      }, []);
+
+     {/*Add the data*/}
     const addItem = (item: LinkItem) => {
       setItems([...items, { id: Date.now(), ...item }]);
     };
@@ -28,7 +43,7 @@ export const LinkVaultApp = () => {
          <RecordingMethod addItem={addItem} />
          <Table items={items} />
        </>
-  );
+  ); 
 };
 
 export default LinkVaultApp;

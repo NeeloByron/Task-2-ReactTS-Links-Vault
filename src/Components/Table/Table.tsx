@@ -14,27 +14,37 @@ interface TableProps {
   items: LinkItem[];
 }
 
-export const Table: React.FC<TableProps> = ({items}) => {
+export const Table: React.FC<TableProps> = ({ items }) => {
   return (
     <>
       <table className={styles.mainTable}>
-        <tr>
-          <th className={styles.row}>Title</th>
-          <th className={styles.row}>Link (URL)</th>
-          <th className={styles.row}>Description</th>
-          <th className={styles.row}>Optional Tags</th>
+        <thead>
+         <tr>
+           <th className={styles.row}>Title</th>
+           <th className={styles.row}>Link (URL)</th>
+           <th className={styles.row}>Description</th>
+           <th className={styles.row}>Optional Tags</th>
          </tr>
-
-          <tr>
-          <td className={styles.customtd}>Favorite Music Video</td>
-          <td className={styles.customtd}>www.example.com</td>
-          <td className={styles.customtd}>I love this video</td>
-          <td className={styles.customtd}>Music</td>
-          <td className={styles.customtd}>
-           <Button btnText='Edit' />
-           <Button btnText='Delete' />
-    </td>
-  </tr>
+         </thead>
+            <tbody>
+          {/* Loop */}
+          {items.map((item) => (
+            <tr key={item.id}>
+              <td className={styles.customtd}>{item.Title}</td>
+              <td className={styles.customtd}>
+                <a href={item.URL} >
+                  {item.URL}
+                </a>
+              </td>
+              <td className={styles.customtd}>{item.Description}</td>
+              <td className={styles.customtd}>{item.OptionalTag}</td>
+              <td className={styles.customtd}>
+                <Button btnText='Edit' />
+                <Button btnText='Delete' />
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
   
     </>
