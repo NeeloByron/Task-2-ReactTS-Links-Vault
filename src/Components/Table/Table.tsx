@@ -1,7 +1,20 @@
+import React from 'react'
 import styles from '@/Components/Table/Table.module.css'
 import Button from '../Inputs/Button'
 
-export const Table = () => {
+interface LinkItem {
+  id?: number;
+  Title: string;
+  URL: string;
+  Description: string;
+  OptionalTag: string;
+}
+
+interface TableProps {
+  items: LinkItem[];
+}
+
+export const Table: React.FC<TableProps> = ({items}) => {
   return (
     <>
       <table className={styles.mainTable}>

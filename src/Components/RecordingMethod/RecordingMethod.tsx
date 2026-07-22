@@ -1,40 +1,43 @@
 import Button from '@/Components/Inputs/Button'
 import { useState } from 'react'
 
-function RecordingMethod ({addItem}) {
+interface LinkItem {
+  id?: number;
+  Title: string;
+  URL: string;
+  Description: string;
+  OptionalTag: string;
+}
+
+interface RecordingMethodProps {
+  addItem: (item: LinkItem) => void;
+}
+
+function RecordingMethod ({ addItem }: RecordingMethodProps) {
 
    const [Title, setTitle] = useState("")
    const [URL, setUrl] = useState("")
    const [Description, setDescription] = useState("")
    const [OptionalTag, setOptionaltag] = useState("")
 
-   const handleSubmit = (e) => {
-    e.preventDefault(); 
-   
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-   if (!Title.trim() || !URL.trim()) {
-    alert('Please fill out both the Title and URL fields.');
-    return;
-   }
+    if (!Title.trim() || !URL.trim()) {
+         return; 
+      }
 
-   const newRecord = {
-    title: Title.trim(),
-    url: URL.trim(),
-    description: Description.trim(),
-    OptionalTag: OptionalTag.trim()
-   };
+      addItem({
+         Title: Title.trim(),
+         URL: URL.trim(),
+         Description: Description.trim(),
+         OptionalTag: OptionalTag.trim()
+      });
 
-   if (addItem) {
-    addItem(newRecord);
-   }
-   else {
-    console.log('Saved data:', newRecord)
-   }
-
-   setTitle("");
-   setUrl("");
-   setDescription("");
-   setOptionaltag("");
+      setTitle("");
+      setUrl("");
+      setDescription("");
+      setOptionaltag("");
    };
 
   return (
