@@ -1,5 +1,4 @@
-import React from 'react'
-import Button from '@/Components/Inputs/Button'
+
 
 export const RecordingMethod = () => {
   return (
@@ -9,22 +8,22 @@ export const RecordingMethod = () => {
            
            <div className='recordHeader'>
             <h2 className='Model-title'>Add New</h2>
-            <Button btnText={'Add'} />
+            
            </div>
 
       <div className='RecordBody'>
         <div className='formContainer'>
             <label className='formLabel'>Title</label> 
-            <input type={'Text'} className={'formInput'} placeholder={'Enter Title'} />
+            <input type={'text'} className={'formInput'} placeholder={'Enter Title'} />
 
-            <label className='formLabel'>Title</label> 
-            <input type={'Text'} className={'formInput'} placeholder={'Enter Title'} />
+            <label className='formLabel'>Link (URL)</label> 
+            <input type={'text'} className={'formInput'} placeholder={'Enter or paste your URL'} />
 
-            <label className='formLabel'>Title</label> 
-            <input type={'Text'} className={'formInput'} placeholder={'Enter Title'} />
+            <label className='formLabel'>Description</label> 
+            <input type={'text'} className={'formInput'} placeholder={'Enter your description'} />
 
-            <label className='formLabel'>Title</label> 
-            <input type={'Text'} className={'formInput'} placeholder={'Enter Title'} />
+            <label className='formLabel'>Optional Tags</label> 
+            <input type={'text'} className={'formInput'} placeholder={'Enter tags'} />
         </div>
       
        </div>
@@ -34,3 +33,5 @@ export const RecordingMethod = () => {
    </>
   )
 }
+
+export default RecordingMethod

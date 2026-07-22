@@ -1,4 +1,5 @@
 import bookMarkImage from '@/assets/bookmark.png'
+import { RecordingMethod } from '@/Components/RecordingMethod'
 
 
 
@@ -16,11 +17,11 @@ function App() {
              <div className='NavCard'>
               <img src={bookMarkImage} alt='bookMark' />
              </div>
-         </div> 
-
+         </div>
          
-           </div>
-    
+         
+      </div>
+    <RecordingMethod />
     </>
   )
 }
