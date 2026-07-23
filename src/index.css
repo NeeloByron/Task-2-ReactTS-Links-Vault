@@ -8,7 +8,7 @@
 body {
    background-color: #E8ECEB;
    color:#2D3E4E;
-   font-family: 'Google+Sans:ital', sans-serif;
+   font-family: 'Google Sans', sans-serif;
 }
 
 .grid-container {
@@ -24,7 +24,7 @@ body {
     }
 }
 
-@media (min-wiidth: 1024px) {
+@media (min-width: 1024px) {
     .grid-container {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -64,9 +64,10 @@ body {
 /*main body*/
 .bodyContainer {
     width: 100%;
-    min-width: calc(100vh - 120px);
+    
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 40px 20px;
     box-sizing: border-box;
 }
@@ -85,7 +86,19 @@ body {
     }
 }
 
-Button  {
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .main h1 {
+        font-size: 1.4rem;
+    }
+}
+
+Button {
     background-color: #8CBDB9;
     color: #2D3E4E;
     padding: 6px 16px;
@@ -110,3 +123,8 @@ Button:hover {
   z-index: 50;
 }
 
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
