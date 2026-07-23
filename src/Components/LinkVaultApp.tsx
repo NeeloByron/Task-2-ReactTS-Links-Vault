@@ -45,6 +45,11 @@ export const LinkVaultApp = () => {
       setItems(updateItems);
     };
 
+    const editItem = (id: number) => {
+      const itemToEdit = items.find((item) => item.id === id);
+      if (!itemToEdit) return;
+    };
+
     {/*data sequence*/}
     const filteredItems = items.filter((item) => {
       const search = searchTerm.toLowerCase();
@@ -89,14 +94,16 @@ export const LinkVaultApp = () => {
                 </button>
               )}
               </div>
-              <Button type='button' btnText='+ Add link' onClick={() => setModalOpen(true)} />
+              <Button type='button' btnText='Add link' onClick={() => setModalOpen(true)} />
             </main>
 
             <footer className={'footer'}>
                <Table items={items} deleteItem={deleteItem}/>
-
-               {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
-               {items.length === 0 && (<p>Add your first link </p>)}
+                
+                {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
+                {items.length === 0 && (<p>Add your first link </p>)}
+                
+               
             </footer>
 
           </div>

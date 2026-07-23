@@ -45,13 +45,13 @@ function RecordingMethod ({ addItem, open, onClose }: RecordingMethodProps) {
   return (
    <>
       <div className='modalOverlay' onClick={onClose}>
-        <form onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
+        <form className={'formCard'} onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
         <input type='text' placeholder='Title' className={'title'} value={Title} onChange={(e) => setTitle(e.target.value)} />
         <input type='text' placeholder= 'Link (URL)' className={'title'} value={URL} onChange={(e) => setUrl(e.target.value)} />
         <input type='text' placeholder='Description' className={'title'} value={Description} onChange={(e) => setDescription(e.target.value)} />
         <input type='text' placeholder='Optional Tags' className={'title'} value={OptionalTag} onChange={(e) => setOptionaltag(e.target.value)} />
          <Button type='submit' btnText='Save link' />
-         {/*<button type='button' className='closeBtn' onClick={onClose}>x</button>*/}
+         <button type='button' className='closeBtn' onClick={onClose}>Close</button>
       </form>
       </div>
    </>
