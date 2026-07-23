@@ -78,8 +78,10 @@ export const LinkVaultApp = () => {
             
             <main className={'bodyContainer'}>
              <RecordingMethod addItem={addItem} open={modalOpen} />
-               <div className={'seachContainer'}>
-              <input type='text' placeholder='Search links...' value={searchTerm} onChange={handleSearch} />
+               <div className={'searchContainer'}>
+
+                 <span className="Search-icon material-symbols-outlined" >search</span>
+                 <input type={'text'} className={'search-input'} placeholder={'Search links...'} value={searchTerm} onChange={handleSearch} />
 
               {searchTerm && (
                 <button onClick={clearSearch} className='clearBtn'>
@@ -94,7 +96,7 @@ export const LinkVaultApp = () => {
                <Table items={items} deleteItem={deleteItem}/>
 
                {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
-               {items.length === 0 && (<p>Empty links, Add your first link </p>)}
+               {items.length === 0 && (<p>Add your first link </p>)}
             </footer>
 
           </div>
