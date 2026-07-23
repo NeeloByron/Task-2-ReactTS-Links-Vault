@@ -101,7 +101,7 @@ body {
 }
 
 Button {
-    background-color: #8CBDB9;
+    background-color: #C1DFDC;
     color: #2D3E4E;
     padding: 11px 16px;
     border-radius: 5px;
@@ -132,7 +132,7 @@ Button:hover {
     align-items: center;
     padding: 8px;
     border-radius: 28px;
-    background-color: #8CBDB9;
+    background-color: #C1DFDC;
 }
 
 .search-input {
