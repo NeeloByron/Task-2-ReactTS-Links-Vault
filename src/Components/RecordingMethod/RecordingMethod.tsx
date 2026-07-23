@@ -50,8 +50,8 @@ function RecordingMethod ({ addItem, open, onClose }: RecordingMethodProps) {
         <input type='text' placeholder= 'Link (URL)' className={'title'} value={URL} onChange={(e) => setUrl(e.target.value)} />
         <input type='text' placeholder='Description' className={'title'} value={Description} onChange={(e) => setDescription(e.target.value)} />
         <input type='text' placeholder='Optional Tags' className={'title'} value={OptionalTag} onChange={(e) => setOptionaltag(e.target.value)} />
-         <Button type='submit' btnText='Save link' />
-         <button type='button' className='closeBtn' onClick={onClose}>Close</button>
+         <Button type="submit" btnText="Save link" style={{ backgroundColor: '#2563eb', color: '#fff' }} />
+         <button type="button" className="closeBtn" style={{ backgroundColor: '#e5e7eb', color: '#111827' }} onClick={onClose}>Close</button>
       </form>
       </div>
    </>
