@@ -1,6 +1,7 @@
 import Button from '@/Components/Inputs/Button'
 import { useEffect, useState } from 'react'
 
+
 interface LinkItem {
   id?: number;
   Title: string;
@@ -63,12 +64,30 @@ function RecordingMethod ({ addItem, editItem, open, editingItem, onClose }: Rec
    <>
       <div className='modalOverlay' onClick={onClose}>
         <form className={'formCard'} onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
-        <input type='text' placeholder='Title' className={'title'} value={Title} onChange={(e) => setTitle(e.target.value)} />
-        <input type='text' placeholder= 'Link (URL)' className={'title'} value={URL} onChange={(e) => setUrl(e.target.value)} />
-        <input type='text' placeholder='Description' className={'title'} value={Description} onChange={(e) => setDescription(e.target.value)} />
-        <input type='text' placeholder='Optional Tags' className={'title'} value={OptionalTag} onChange={(e) => setOptionaltag(e.target.value)} />
-         <Button type="submit" btnText={editingItem ? "Save changes" : "Save"} style={{ backgroundColor: '#2563eb', color: '#fff' }} />
-         <button type="button" style={{ backgroundColor: '#e5e7eb', color: '#111827' }} onClick={onClose}>Close</button>
+          <div className={'formGroup'}>
+             <label htmlFor="Title : ">Title</label>
+             <input type='text' placeholder='Provide Title' className={'title'} value={Title} onChange={(e) => setTitle(e.target.value)} />
+         </div>
+
+         <div className={'formGroup'}>
+           <label htmlFor="URL : ">URL</label>
+           <input type='text' placeholder= 'Provide a Link (URL)' className={'title'} value={URL} onChange={(e) => setUrl(e.target.value)} />
+         </div>
+
+         <div className={'formGroup'}>
+          <label htmlFor="Description : ">Description</label>
+          <input type='text' placeholder='Provide a Description' className={'title'} value={Description} onChange={(e) => setDescription(e.target.value)} />
+         </div>
+
+         <div className={'formGroup'}>
+          <label htmlFor="OptionalTag : ">Optional Tag</label>
+          <input type='text' placeholder='Optional Tags' className={'title'} value={OptionalTag} onChange={(e) => setOptionaltag(e.target.value)} />
+         </div> 
+     
+          <div className={'btnGroup'}>
+            <Button type="submit" btnText={editingItem ? "Save changes" : "Save"} style={{ backgroundColor: '#2563eb', color: '#fff', border:'none', borderRadius:'8px', cursor: 'pointer' }} />
+            <button type="button" style={{ backgroundColor: '#e5e7eb', color: '#111827', border:'none', borderRadius:'8px', cursor: 'pointer' }} onClick={onClose}>Close</button>
+          </div>
       </form>
       </div>
    </>
