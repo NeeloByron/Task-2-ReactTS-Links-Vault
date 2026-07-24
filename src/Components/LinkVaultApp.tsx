@@ -26,7 +26,8 @@ export const LinkVaultApp = () => {
     });
     
     const [searchTerm, setSearchTerm] = useState("");
-    const [modalOpen, setModalOpen] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState("false");
+    const [editingItem, setEditingItem] = useState<LinkItem | null>(null);
 
     {/* saving data*/}
      useEffect(() => {
@@ -45,9 +46,14 @@ export const LinkVaultApp = () => {
       setItems(updateItems);
     };
 
-    const editItem = (id: number) => {
-      const itemToEdit = items.find((item) => item.id === id);
-      if (!itemToEdit) return;
+    const editItem = (id: number, updateFields: Partial<LinkItem>) => {
+      const updateItems = items.map((item) => item.id === id ? {...item, ...updateFields } : item);
+      setItems(updateItems);
+    };
+
+    const handleStartEdit = (item: LinkItem) => {
+      setEditingItem(item);
+      setIsModalOpen(true);
     };
 
     {/*data sequence*/}
@@ -82,7 +88,10 @@ export const LinkVaultApp = () => {
             </header>
             
             <main className={'bodyContainer'}>
-             <RecordingMethod addItem={addItem} open={modalOpen} />
+             <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
+                onClose={() => {
+                  setIsModalOpen(false);
+                  setEditingItem(null);}} />
                <div className={'searchContainer'}>
 
                  <span className="Search-icon material-symbols-outlined" >search</span>
@@ -94,16 +103,13 @@ export const LinkVaultApp = () => {
                 </button>
               )}
               </div>
-              <Button type='button' btnText='Add link' onClick={() => setModalOpen(true)} />
+              <Button type='button' btnText='Add' onClick={() => { setEditingItem(null); setIsModalOpen(true)}} />
             </main>
 
             <footer className={'footer'}>
-               <Table items={items} deleteItem={deleteItem}/>
-                
+               <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
                 {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
                 {items.length === 0 && (<p>Add your first link </p>)}
-                
-               
             </footer>
 
           </div>

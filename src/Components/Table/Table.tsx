@@ -13,12 +13,12 @@ interface LinkItem {
 type TableProps = {
   items: LinkItem[];
   deleteItem: (id: number) => void;
-  editItem: (id: number) => void;
+  onEditClick: (item: LinkItem) => void;
 };
 
 
 
-export const Table: React.FC<TableProps> = ({ items, deleteItem, editItem }) => {
+export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) => {
   return (
     <>
       <table className={styles.mainTable}>
@@ -44,8 +44,8 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, editItem }) => 
               <td className={styles.customtd}>{item.Description}</td>
               <td className={styles.customtd}>{item.OptionalTag}</td>
               <td className={styles.customtd}>
-                <Button btnText="Edit" style={{ background: '#2563eb', color: '#fff'}} onClick={() => item.id && editItem(item.id)} />
-                <Button btnText='Delete' style={{ backgroundColor: '#dc2626', color: '#fff'}} onClick={() => item.id && deleteItem(item.id)}/>
+                <Button btnText="Edit" style={{ background: '#2563eb', color: '#fff', width: '60px', height: '40px'}} onClick={() => onEditClick(item)} />    
+                <Button btnText='Delete' style={{ backgroundColor: '#dc2626', color: '#fff', width: '60px', height: '40px'}} onClick={() => item.id && deleteItem(item.id)}/>
               </td>
             </tr>
           ))}

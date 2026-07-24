@@ -1,5 +1,5 @@
 import Button from '@/Components/Inputs/Button'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface LinkItem {
   id?: number;
@@ -11,35 +11,52 @@ interface LinkItem {
 
 interface RecordingMethodProps {
   addItem: (item: LinkItem) => void;
+  editItem: (id: number, updateFields: Partial<LinkItem>) => void;
   open: boolean;
+  editingItem: LinkItem | null;
   onClose: () => void;
 }
 
-function RecordingMethod ({ addItem, open, onClose }: RecordingMethodProps) {
+function RecordingMethod ({ addItem, editItem, open, editingItem, onClose }: RecordingMethodProps) {
 
    const [Title, setTitle] = useState("")
    const [URL, setUrl] = useState("")
    const [Description, setDescription] = useState("")
    const [OptionalTag, setOptionaltag] = useState("")
-
+     
+    useEffect(() => {
+      if (open && editingItem) {
+        setTitle(editingItem.Title);
+        setUrl(editingItem.URL);
+        setDescription(editingItem.Description);
+        setOptionaltag(editingItem.OptionalTag);
+      } 
+        else {
+          setTitle('');
+          setUrl('');
+          setDescription('');
+          setOptionaltag('');
+        }
+      }, [open, editingItem]);
+      
     if (!open) return null;
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-    if (!Title.trim() || !URL.trim()) return;
-    addItem({
-         id: Date.now(),
-         Title: Title.trim(),
-         URL: URL.trim(),
-         Description: Description.trim(),
-         OptionalTag: OptionalTag.trim()
-         });
+    const itemData = {
+      Title: Title.trim(),
+      URL: URL.trim(),
+      Description: Description.trim(),
+      OptionalTag: OptionalTag.trim()
+    };
 
-       setTitle('');
-       setUrl('');
-       setDescription('');
-       setOptionaltag('');
-       onClose();
+    if (editingItem && editingItem.id) {
+      editItem(editingItem.id, itemData);
+    }
+    else {
+      addItem(itemData);
+    }
+      onClose();
    };
 
   return (
@@ -50,8 +67,8 @@ function RecordingMethod ({ addItem, open, onClose }: RecordingMethodProps) {
         <input type='text' placeholder= 'Link (URL)' className={'title'} value={URL} onChange={(e) => setUrl(e.target.value)} />
         <input type='text' placeholder='Description' className={'title'} value={Description} onChange={(e) => setDescription(e.target.value)} />
         <input type='text' placeholder='Optional Tags' className={'title'} value={OptionalTag} onChange={(e) => setOptionaltag(e.target.value)} />
-         <Button type="submit" btnText="Save link" style={{ backgroundColor: '#2563eb', color: '#fff' }} />
-         <button type="button" className="closeBtn" style={{ backgroundColor: '#e5e7eb', color: '#111827' }} onClick={onClose}>Close</button>
+         <Button type="submit" btnText={editingItem ? "Save changes" : "Save"} style={{ backgroundColor: '#2563eb', color: '#fff' }} />
+         <button type="button" style={{ backgroundColor: '#e5e7eb', color: '#111827' }} onClick={onClose}>Close</button>
       </form>
       </div>
    </>
