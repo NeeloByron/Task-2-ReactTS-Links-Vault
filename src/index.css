@@ -79,7 +79,8 @@ body {
 
 .content-wrapper {
     width: 100%;
-    max-width: 800px;
+    max-width: clamp(320px, 90vw, 800px);
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -139,11 +140,15 @@ Button:hover {
 }
 
 th {
-    margin-left: auto;
-    margin-right: auto; 
-    font-family: 'Google+Sans:ital', sans-serif;
-    width: 860px;
+    font-family: 'Google+Sans:ital', sans-serif;;
     border-radius: 0.25rem;  
+    width: auto;
+}
+
+.tableWrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 .search-input {
@@ -161,7 +166,10 @@ th {
 .formCard {
     background: #C1DFDC;
     border-radius: 10px;
-    padding: 80px;
+    padding: clamp (20px, 6vw, 80px);
+    width: min(90vw, 420px);
+    min-height: 90vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
