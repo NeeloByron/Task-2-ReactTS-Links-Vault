@@ -83,38 +83,55 @@ export const LinkVaultApp = () => {
        <>
          <div className={'main'}>
            <header className={'header'}>
-             <div className={'titleAndLogo'}>
-               <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '76px' }} />
-               <h1>The URL Archive</h1>
+
+              <div className={'titleAndLogo'}>
+               <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '60px' }} />
+               <h1>URL Archive</h1>
               </div>
-             <Button type='button' btnText='Add' onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
+              
+              <div className={'buttonSide'}>
+               <Button type='button' btnText='Add Link' style={{width: '11rem', 
+                height: '3.8rem', 
+                fontSize: '18px', backgroundColor: '#2196f3',
+                borderRadius: '10px',
+                border:'none',
+                cursor:'pointer'}} onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
+                
+              </div>
+
             </header>
-            
+          
+
             <main className={'bodyContainer'}>
-             <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
-                onClose={() => {
-                  setIsModalOpen(false);
-                  setEditingItem(null);}} />
-               <div className={'searchContainer'}>
+               <search className={'searchContainer'}>
+                 <span className="Search-icon" >/</span>
+                 <input type={'text'} className={'search-input'} 
+                        placeholder={'Search Title, URL, Description etc...'} 
+                        value={searchTerm} 
+                        onChange={handleSearch} />
 
-                 <span className="Search-icon material-symbols-outlined" >search</span>
-                 <input type={'text'} className={'search-input'} placeholder={'Search links...'} value={searchTerm} onChange={handleSearch} />
+                 {searchTerm && (
+                   <button onClick={clearSearch} className='clearBtn'>
+                     ✕
+                   </button>
+                   )}
+                 </search>
+               
+              <section aria-label='Saved Links'>
+                <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
+                 {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
+                {items.length === 0 && (<p>Add your first link </p>)}
+               </section>  
 
-              {searchTerm && (
-                <button onClick={clearSearch} className='clearBtn'>
-                  ✕
-                </button>
-              )}
-              </div>
-             
+             {/* <div className={'countItemsHolder'}>
+               <p className={'countItems'}>{filteredItems.length} Links</p>
+               </div>*/}
             </main>
 
-            <footer className={'footer'}>
-               <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
-                {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
-                {items.length === 0 && (<p>Add your first link </p>)}
-            </footer>
-
+                <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
+                onClose={() => {
+                  setIsModalOpen(false);
+                  setEditingItem(null);}} /> {/*the recording method to place it*/}
           </div>
        </>
   ); 
