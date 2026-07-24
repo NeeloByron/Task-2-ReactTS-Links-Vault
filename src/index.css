@@ -34,7 +34,7 @@ body {
 
 .main .header {
      display: flex;
-     justify-content: center;
+     justify-content: space-around;
      align-items: center;
      width: 100%;
      padding: 0 20px;
@@ -55,12 +55,15 @@ body {
 .main h1 {
     font-size: 2rem;
 }
-
-.bookmarkIcon img {
+.titleAndLogo {
+    display: flex;
+    align-items: center;
+}
+.titleAndLogo .bookmarkIcon img {
   width: auto; 
   height: auto;
-  max-width: 67px;
-  max-height: 76px;
+  max-width: 52px;
+  max-height: 51px;
 }
 
 /*main body*/

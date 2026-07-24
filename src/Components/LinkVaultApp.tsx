@@ -26,7 +26,7 @@ export const LinkVaultApp = () => {
     });
     
     const [searchTerm, setSearchTerm] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState("false");
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<LinkItem | null>(null);
 
     {/* saving data*/}
@@ -82,9 +82,12 @@ export const LinkVaultApp = () => {
   return (
        <>
          <div className={'main'}>
-            <header className={'header'}>
-             <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '76px' }} />
-             <h1> Bookmark Link Vault</h1>
+           <header className={'header'}>
+             <div className={'titleAndLogo'}>
+               <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '76px' }} />
+               <h1>The URL Archive</h1>
+              </div>
+             <Button type='button' btnText='Add' onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
             </header>
             
             <main className={'bodyContainer'}>
@@ -103,7 +106,7 @@ export const LinkVaultApp = () => {
                 </button>
               )}
               </div>
-              <Button type='button' btnText='Add' onClick={() => { setEditingItem(null); setIsModalOpen(true)}} />
+             
             </main>
 
             <footer className={'footer'}>
