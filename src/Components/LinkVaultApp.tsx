@@ -83,7 +83,7 @@ export const LinkVaultApp = () => {
            <div className={'main'}>
             <header className={'header'}>
                <div className={'title'}>
-                 <h1>URL Archive</h1>
+                 <h1>URL ARCHIVE</h1>
                </div>
             </header>
 
