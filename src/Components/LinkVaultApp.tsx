@@ -2,6 +2,7 @@ import  RecordingMethod  from '@/Components/RecordingMethod/RecordingMethod'
 import { Table } from '@/Components/Table/Table';
 import { useEffect, useState } from 'react';
 import Button from './Inputs/Button';
+import bookMark from '@/assets/bookmark.png';
 
 interface LinkItem {
   id?: number;
@@ -83,6 +84,9 @@ export const LinkVaultApp = () => {
            <div className={'main'}>
             <header className={'header'}>
                <div className={'title'}>
+                {/* <img src={bookMark} className={'bookMarkIcon'} 
+                    style={{width: '26px', 
+                           height: '34px'}} /> */}
                  <h1>URL ARCHIVE</h1>
                </div>
             </header>
