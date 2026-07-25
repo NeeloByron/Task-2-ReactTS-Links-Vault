@@ -1,6 +1,5 @@
 import  RecordingMethod  from '@/Components/RecordingMethod/RecordingMethod'
-import { Table } from '@/Components/Table/Table'
-import bookmarkIcon from '@/assets/bookmark.png'
+import { Table } from '@/Components/Table/Table';
 import { useEffect, useState } from 'react';
 import Button from './Inputs/Button';
 
@@ -37,10 +36,6 @@ export const LinkVaultApp = () => {
   
      {/*Add the data*/}
     const addItem = (item: LinkItem) => {
-      if (item.Title || item.Title.trim() === '') {
-        return;
-      }
-
       setItems([...items, { id: Date.now(), ...item }]);
     };
 
@@ -94,14 +89,10 @@ export const LinkVaultApp = () => {
 
             <main className={'bodyContainer'}>
 
-             <div className={'logo'} >
-              <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '60px' }} />
-             </div>
-
                <search className={'searchContainer'}>
-                 <span className="Search-icon" >/</span>
+                 <span className={'material-symbols-outlined search-icon'}></span>
                  <input type={'text'} className={'search-input'} 
-                        placeholder={'Search Title, URL, Description etc...'} 
+                        placeholder={''} 
                         value={searchTerm} 
                         onChange={handleSearch} />
 
@@ -113,18 +104,12 @@ export const LinkVaultApp = () => {
                  </search>
 
                <div className={'buttonSide'}>
-                 <Button type='button' btnText='Add Link' style={{width: '11rem', 
-                  height: '3.8rem', 
-                  fontSize: '18px', backgroundColor: '#2196f3',
-                  borderRadius: '10px',
-                  border:'none',
-                  cursor:'pointer'}} onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
+                 <Button type='button' btnText='Add Link' onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
               </div>
-               
               
             </main>
 
-            <section aria-label='Saved Links'>
+            <section className={'results'} aria-label='saved-Links'>
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
                  {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
                 {items.length === 0 && (<p>Add your first link </p>)}

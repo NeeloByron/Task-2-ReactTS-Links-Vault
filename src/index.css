@@ -8,7 +8,7 @@
 }
 
 body {
-   background-color: #F8FAFC;
+   background-color: #fff;
    color:#2D3E4E;
    font-family: 'Google Sans', sans-serif;
 }
@@ -53,19 +53,36 @@ body {
     font-weight: 700;
 }
 
-/*main body*/
+/*main body goes with logo, search and add button*/
 .bodyContainer {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 40px 20px;
     box-sizing: border-box;
     gap: 25px;
     border: 3px solid black;
     border-radius: 10px;
-     max-width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.logo {
+     width: auto; 
+     height: auto;
+}
+
+.BookMarkicon img {
+  width: auto; 
+  height: auto;
+  max-width: 52px;
+  max-height: 51px;
+}
+
+/*button*/
+.buttonSide {
+
 }
 
 .content-wrapper {
@@ -177,29 +194,17 @@ th {
     overflow-x: auto;
 }
 
-.search-input {
-    font-family: 'Google Sans', sans-serif;
-    color: #18181b;
-    font-size: 18px;
-    border: 1px solid #27272a;
-    outline: none;
-    border: none;
-    background: transparent;
-    transition: border-color 0.15s ease;
-}
-.searchInput::placeholder {
-  color: rgba(255, 255, 255, 0.7); 
-}
-
-.clearBtn {
-   position: absolute;
-   background: none;
-   border: none;
-   cursor: pointer;
-   color: #6b7280;
-}
-
-.clearBtn:hover {
-    color: white;
-    background-color: red;
+/* section */
+.results {
+     display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    gap: 25px;
+    border: 3px solid black;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
