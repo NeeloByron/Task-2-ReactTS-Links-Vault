@@ -93,7 +93,11 @@ export const LinkVaultApp = () => {
             </header>
 
             <main className={'bodyContainer'}>
+
+             <div className={'logo'} >
               <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '60px' }} />
+             </div>
+
                <search className={'searchContainer'}>
                  <span className="Search-icon" >/</span>
                  <input type={'text'} className={'search-input'} 
@@ -117,7 +121,10 @@ export const LinkVaultApp = () => {
                   cursor:'pointer'}} onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
               </div>
                
-              <section aria-label='Saved Links'>
+              
+            </main>
+
+            <section aria-label='Saved Links'>
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
                  {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
                 {items.length === 0 && (<p>Add your first link </p>)}
@@ -126,7 +133,6 @@ export const LinkVaultApp = () => {
              {/* <div className={'countItemsHolder'}>
                <p className={'countItems'}>{filteredItems.length} Links</p>
                </div>*/}
-            </main>
 
                 <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
                 onClose={() => {
