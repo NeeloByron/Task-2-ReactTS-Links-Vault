@@ -44,6 +44,8 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
               <td className={styles.customtd}>{item.Description}</td>
               <td className={styles.customtd}>{item.OptionalTag}</td>
               <td className={styles.customtd}>
+
+              <div className={'editAndDelete'}>
                 <Button btnText="Edit" style={{ background: '#F2F4F7', 
                                                  color: '#34425A', 
                                                  width: '60px', 
@@ -51,7 +53,14 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
                                                  border: 'none',
                                                  borderRadius: '4px'}} 
                                                  onClick={() => onEditClick(item)} />    
-                <Button btnText='Delete' style={{ backgroundColor: '#34425A', color: '#fff', width: '60px', height: '40px'}} onClick={() => item.id && deleteItem(item.id)}/>
+                <Button btnText='Delete' style={{ backgroundColor: '#34425A', 
+                                                   color: '#fff',
+                                                   width: '60px',
+                                                   height: '40px',
+                                                   border: 'none',
+                                                   borderRadius: '4px'}}
+                                                 onClick={() => item.id && deleteItem(item.id)}/>
+                </div>
               </td>
             </tr>
           ))}
