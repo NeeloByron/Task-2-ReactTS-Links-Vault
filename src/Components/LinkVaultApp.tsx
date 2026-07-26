@@ -3,6 +3,7 @@ import { Table } from '@/Components/Table/Table';
 import { useEffect, useState } from 'react';
 import Button from './Inputs/Button';
 import edgeLogo from '@/assets/add-information.svg'
+import notFound from '@/assets/not-found.svg'
 import bookMark from '@/assets/bookmark.png';
 
 interface LinkItem {
@@ -116,11 +117,11 @@ export const LinkVaultApp = () => {
 
             <section className={'results'} aria-label='saved-Links'>
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
-                 {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
+                 {filteredItems.length === 0 && items.length > 0 && (<div className={'icon-notFound'}><img src={notFound} 
+                                        alt="Microsoft Edge HTML Document" onClick={clearSearch} /> 
+                                        </div>)}
                 {items.length === 0 && (<div className={'icon-container'}><img src={edgeLogo} 
                                         alt="Microsoft Edge HTML Document" onClick={() => { setEditingItem(null); setIsModalOpen(true);}} /> 
-                                        <div className={'buttonSide'}>
-              </div>
                                         </div>)}
                </section>  
 

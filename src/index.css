@@ -221,3 +221,9 @@ th {
     justify-content: center;
     align-items: center;
 }
+
+.icon-notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
