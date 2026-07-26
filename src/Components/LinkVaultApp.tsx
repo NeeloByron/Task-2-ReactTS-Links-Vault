@@ -1,8 +1,10 @@
 import  RecordingMethod  from '@/Components/RecordingMethod/RecordingMethod'
-import { Table } from '@/Components/Table/Table'
-import bookmarkIcon from '@/assets/bookmark.png'
+import { Table } from '@/Components/Table/Table';
 import { useEffect, useState } from 'react';
 import Button from './Inputs/Button';
+import edgeLogo from '@/assets/add-information.svg'
+import notFound from '@/assets/not-found.svg'
+import bookMark from '@/assets/bookmark.png';
 
 interface LinkItem {
   id?: number;
@@ -80,33 +82,23 @@ export const LinkVaultApp = () => {
 
 
   return (
-       <>
-         <div className={'main'}>
-           <header className={'header'}>
-
-              <div className={'titleAndLogo'}>
-               <img src={bookmarkIcon} alt='BookMarkicon' style={{ width: '67px', height: '60px' }} />
-               <h1>URL Archive</h1>
-              </div>
-              
-              <div className={'buttonSide'}>
-               <Button type='button' btnText='Add Link' style={{width: '11rem', 
-                height: '3.8rem', 
-                fontSize: '18px', backgroundColor: '#2196f3',
-                borderRadius: '10px',
-                border:'none',
-                cursor:'pointer'}} onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
-                
-              </div>
-
+         <>
+           <div className={'main'}>
+            <header className={'header'}>
+               <div className={'title'}>
+                {/* <img src={bookMark} className={'bookMarkIcon'} 
+                    style={{width: '26px', 
+                           height: '34px'}} /> */}
+                 <h1>URL ARCHIVE</h1>
+               </div>
             </header>
-          
 
             <main className={'bodyContainer'}>
+
                <search className={'searchContainer'}>
-                 <span className="Search-icon" >/</span>
+                 <span className={'material-symbols-outlined search-icon'}></span>
                  <input type={'text'} className={'search-input'} 
-                        placeholder={'Search Title, URL, Description etc...'} 
+                        placeholder={''} 
                         value={searchTerm} 
                         onChange={handleSearch} />
 
@@ -116,22 +108,27 @@ export const LinkVaultApp = () => {
                    </button>
                    )}
                  </search>
-               
-              <section aria-label='Saved Links'>
-                <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
-                 {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
-                {items.length === 0 && (<p>Add your first link </p>)}
-               </section>  
 
-             {/* <div className={'countItemsHolder'}>
-               <p className={'countItems'}>{filteredItems.length} Links</p>
-               </div>*/}
+               <div className={'buttonSide'}>
+                 <Button type='button' btnText='Add Link' onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
+              </div>
+              
             </main>
+
+            <section className={'results'} aria-label='saved-Links'>
+                <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
+                 {filteredItems.length === 0 && items.length > 0 && (<div className={'icon-notFound'}><img src={notFound} 
+                                        alt="Microsoft Edge HTML Document" onClick={clearSearch} /> 
+                                        </div>)}
+                {items.length === 0 && (<div className={'icon-container'}><img src={edgeLogo} 
+                                        alt="Microsoft Edge HTML Document" onClick={() => { setEditingItem(null); setIsModalOpen(true);}} /> 
+                                        </div>)}
+               </section>  
 
                 <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
                 onClose={() => {
                   setIsModalOpen(false);
-                  setEditingItem(null);}} /> {/*the recording method to place it*/}
+                  setEditingItem(null);}} /> 
           </div>
        </>
   ); 
