@@ -22,7 +22,7 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
   return (
     <>
       <table className={styles.mainTable}>
-        <thead>
+        <thead className={'tableHeader'}>
          <tr>
            <th className={styles.row}>Title</th>
            <th className={styles.row}>Link (URL)</th>
@@ -31,7 +31,7 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
            <th className={styles.row}>Delete/Edit</th>
          </tr>
          </thead>
-            <tbody>
+            <tbody className={'tableBody'}>
           {/* Loop */}
           {items.map((item) => (
             <tr key={item.id}>

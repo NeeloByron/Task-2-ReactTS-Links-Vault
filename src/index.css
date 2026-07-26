@@ -41,7 +41,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;    
     padding: 20px 0;
-    border: 2px solid whitesmoke;
+    border: 3px solid rgba(0, 0, 0, 0.12);
     border-radius: 10px;
 }
 .title {
@@ -206,10 +206,7 @@ th {
 
 /* section */
 .results {
-    display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
     padding: 20px 0;
     box-sizing: border-box;
     gap: 25px;
