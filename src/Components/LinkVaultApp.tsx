@@ -128,7 +128,7 @@ export const LinkVaultApp = () => {
                 <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
                 onClose={() => {
                   setIsModalOpen(false);
-                  setEditingItem(null);}} /> {/*the recording method to place it*/}
+                  setEditingItem(null);}} /> 
           </div>
        </>
   ); 

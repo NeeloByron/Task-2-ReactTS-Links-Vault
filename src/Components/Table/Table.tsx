@@ -51,14 +51,16 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
                                                  width: '60px', 
                                                  height: '40px',
                                                  border: 'none',
-                                                 borderRadius: '4px'}} 
+                                                 borderRadius: '4px',
+                                                 cursor: 'pointer'}} 
                                                  onClick={() => onEditClick(item)} />    
                 <Button btnText='Delete' style={{ backgroundColor: '#34425A', 
                                                    color: '#fff',
                                                    width: '60px',
                                                    height: '40px',
                                                    border: 'none',
-                                                   borderRadius: '4px'}}
+                                                   borderRadius: '4px',
+                                                   cursor: 'pointer'}}
                                                  onClick={() => item.id && deleteItem(item.id)}/>
                 </div>
               </td>
