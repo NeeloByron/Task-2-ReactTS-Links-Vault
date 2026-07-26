@@ -118,13 +118,11 @@ export const LinkVaultApp = () => {
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
                  {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
                 {items.length === 0 && (<div className={'icon-container'}><img src={edgeLogo} 
-                                        alt="Microsoft Edge HTML Document" /> 
+                                        alt="Microsoft Edge HTML Document" onClick={() => { setEditingItem(null); setIsModalOpen(true);}} /> 
+                                        <div className={'buttonSide'}>
+              </div>
                                         </div>)}
                </section>  
-
-             {/* <div className={'countItemsHolder'}>
-               <p className={'countItems'}>{filteredItems.length} Links</p>
-               </div>*/}
 
                 <RecordingMethod addItem={addItem} editItem={editItem} open={isModalOpen} editingItem={editingItem} 
                 onClose={() => {
