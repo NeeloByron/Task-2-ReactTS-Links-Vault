@@ -2,6 +2,7 @@ import  RecordingMethod  from '@/Components/RecordingMethod/RecordingMethod'
 import { Table } from '@/Components/Table/Table';
 import { useEffect, useState } from 'react';
 import Button from './Inputs/Button';
+import edgeLogo from '@/assets/add-information.svg'
 import bookMark from '@/assets/bookmark.png';
 
 interface LinkItem {
@@ -116,7 +117,9 @@ export const LinkVaultApp = () => {
             <section className={'results'} aria-label='saved-Links'>
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
                  {filteredItems.length === 0 && items.length > 0 && (<p>No links found matching to what you entered!</p>)}
-                {items.length === 0 && (<p>Add your first link </p>)}
+                {items.length === 0 && (<div className={'icon-container'}><img src={edgeLogo} 
+                                        alt="Microsoft Edge HTML Document" /> 
+                                        </div>)}
                </section>  
 
              {/* <div className={'countItemsHolder'}>

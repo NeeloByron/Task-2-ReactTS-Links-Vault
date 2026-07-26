@@ -215,3 +215,9 @@ th {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

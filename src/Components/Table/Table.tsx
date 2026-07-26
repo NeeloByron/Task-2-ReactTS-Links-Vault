@@ -66,7 +66,6 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
           ))}
         </tbody>
       </table>
-  
     </>
   )
 }
