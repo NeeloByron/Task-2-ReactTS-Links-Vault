@@ -95,10 +95,9 @@ export const LinkVaultApp = () => {
 
             <main className={'bodyContainer'}>
 
-               <search className={'searchContainer'}>
-                 <span className={'material-symbols-outlined search-icon'}></span>
+               <div className={'searchContainer'}>
                  <input type={'text'} className={'search-input'} 
-                        placeholder={''} 
+                        placeholder={'Enter Title, URL link...'} 
                         value={searchTerm} 
                         onChange={handleSearch} />
 
@@ -107,7 +106,7 @@ export const LinkVaultApp = () => {
                      ✕
                    </button>
                    )}
-                 </search>
+                 </div>
 
                <div className={'buttonSide'}>
                  <Button type='button' btnText='Add Link' onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />

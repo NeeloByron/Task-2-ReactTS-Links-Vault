@@ -61,7 +61,7 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
                                                    border: 'none',
                                                    borderRadius: '4px',
                                                    cursor: 'pointer'}}
-                                                 onClick={() => item.id && deleteItem(item.id)}/>
+                                                 onClick={() => item.id && window.confirm('Are you sure?') && deleteItem(item.id)} />
                 </div>
               </td>
             </tr>
