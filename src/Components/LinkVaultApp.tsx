@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Button from './Inputs/Button';
 import edgeLogo from '@/assets/add-information.svg'
 import notFound from '@/assets/not-found.svg'
-import bookMark from '@/assets/bookmark.png';
+
 
 interface LinkItem {
   id?: number;
@@ -86,14 +86,8 @@ export const LinkVaultApp = () => {
            <div className={'main'}>
             <header className={'header'}>
                <div className={'title'}>
-                {/* <img src={bookMark} className={'bookMarkIcon'} 
-                    style={{width: '26px', 
-                           height: '34px'}} /> */}
                  <h1>URL ARCHIVE</h1>
                </div>
-            </header>
-
-            <main className={'bodyContainer'}>
 
                <div className={'searchContainer'}>
                  <input type={'text'} className={'search-input'} 
@@ -111,8 +105,14 @@ export const LinkVaultApp = () => {
                <div className={'buttonSide'}>
                  <Button type='button' btnText='Add Link' onClick={() => { setEditingItem(null); setIsModalOpen(true);}} />
               </div>
+
+            </header>
+
+        {/*    <main className={'bodyContainer'}>
+
+               
               
-            </main>
+            </main>*/} 
 
             <section className={'results'} aria-label='saved-Links'>
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />

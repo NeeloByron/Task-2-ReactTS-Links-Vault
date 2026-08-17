@@ -243,14 +243,19 @@ th {
 }
 
 .searchContainer input {
-    flex: 1;
-	padding: 14px;
-	border: none;
-	border-radius: 10px;
-	background: #F2F4F7;
-	color: #34425A;
-	outline: none;
+    padding: 0.6rem 3rem 0.6rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #34425A;
+    outline: none;
+    transition: all 300ms ease;
+    width: 100%;
+    border-radius: 1rem;
+    height: 38px;
 }
+
 
 .searchContainer button {
     padding: 14px 22px;
@@ -261,6 +266,17 @@ th {
 	font-weight: bold;
 	cursor: pointer;
 	transition: 0.25s;
+}
+
+.tableHeader {
+    background: #fbf9f4;
+    border-bottom: 1px solid var(--line);
+}
+
+.editAndDelete {
+    display: flex;
+    gap: 6px;
+    justify-content: flex-end;
 }
 
 
