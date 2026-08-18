@@ -46,21 +46,23 @@ export const Table: React.FC<TableProps> = ({ items, deleteItem, onEditClick }) 
               <td className={styles.customtd}>
 
               <div className={'editAndDelete'}>
-                <Button btnText="Edit" style={{ background: '#F2F4F7', 
-                                                 color: '#34425A', 
-                                                 width: '60px', 
-                                                 height: '40px',
-                                                 border: 'none',
-                                                 borderRadius: '4px',
-                                                 cursor: 'pointer'}} 
+                <Button btnText="Edit" style={{ background: 'rgba(255, 255, 255, 0.1)', 
+                                                 color: '#0b2136', 
+                                                 width: '30px', 
+                                                 height: '30px',
+                                                 border: '1px solid #E1DACB',
+                                                 borderRadius: '6px',
+                                                 cursor: 'pointer', 
+                                                 fontSize: '14px'}}
                                                  onClick={() => onEditClick(item)} />    
-                <Button btnText='Delete' style={{ backgroundColor: '#34425A', 
-                                                   color: '#fff',
-                                                   width: '60px',
-                                                   height: '40px',
-                                                   border: 'none',
-                                                   borderRadius: '4px',
-                                                   cursor: 'pointer'}}
+                <Button btnText='Delete' style={{ backgroundColor: '#FFFFFF', 
+                                                   color: '#9b1405',
+                                                   width: '50px',
+                                                   height: '30px',
+                                                   border: '1px solid #E1DACB',
+                                                   cursor: 'pointer',
+                                                   borderRadius: '6px',
+                                                   fontSize: '14px'}}
                                                  onClick={() => item.id && window.confirm('Are you sure?') && deleteItem(item.id)} />
                 </div>
               </td>
