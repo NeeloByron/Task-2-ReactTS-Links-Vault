@@ -23,6 +23,11 @@
 
 ---
 
+## Screenshot 
+<p align="center">
+  <img src="./src/assets/linksvault.png" alt="links vault" width="700">
+</p>
+
 ## System Features
 
 ### CRUD Operations
@@ -49,3 +54,52 @@ Supports all standard breakpoints:
 - **768px** - Tablets
 - **1024px** - Laptops
 - **1200px** - Desktops
+
+## Technologies Used
+
+### Frontend
+- **React 18+** - UI library with hooks and functional components
+- **TypeScript** - Type-safe JavaScript for better maintainability
+- **CSS3** - Custom styling with responsive design
+- **Vite** - Next-generation build tool for faster development
+
+### Data Management
+- **LocalStorage API** - Client-side data persistence
+- **React Hooks** - State management (useState, useEffect, useContext)
+
+#### Development Tools
+- **Prettier** - Code formatting
+- **Git** - Version control
+
+## Installation & Setup
+### Prerequisites 
+- Node.js (v16.0.0 or higher)
+- npm or yarn package manager
+
+### Steps to Run Locally
+
+```bash
+# Clone the repository
+git clone https://github.com/NeeloByron/Task-2-ReactTS-Links-Vault.git
+```
+
+```bash
+# Install dependencies
+npm install
+```
+
+```bash
+# Start development server
+npm run dev
+```
+
+```bash
+# Build for production
+npm run build
+```
+
+```bash
+# Preview production build
+npm run preview
+```
+
