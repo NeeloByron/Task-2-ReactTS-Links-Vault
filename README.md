@@ -1,7 +1,5 @@
 <h1 align="center">Task 2 - BookMark link vault</h1>
 
-
-
 <p>My application is called URL Archive. The task is about testing ability to build a complete, functional web application using React with TypeScript, handling data persistence and responsive design, while maintaining good code quality and UX principles.</p>
 
 <p align="center">
@@ -10,7 +8,6 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
 </p>
-
 
 ---
 
@@ -49,3 +46,42 @@ Supports all standard breakpoints:
 - **768px** - Tablets
 - **1024px** - Laptops
 - **1200px** - Desktops
+
+## File Structure
+- Main.tsx  
+- App.tsx - LinkVaultApp
+- LinkVaultApp.tsx - manages the saved links, searching, editing, deleting and storage.
+- RecordingMethods.tsx - Displays the popup form for adding or editing links
+- Table.tsx - Displays the links in table rows
+- Button.tsx - A reusable button whose text, appearance and action can change through props.
+- Index.css - styles the overall application
+- Table.module.css - Provides styles scoped to table component.
+
+## Tech Stack
+- React 
+- TypeScript
+- CSS
+- Vite
+- LocalStorage
+
+### Steps to Run locally
+
+```bash
+# Clone the repository
+git clone https://github.com/NeeloByron/Task-2-ReactTS-Links-Vault.git
+```
+
+```bash
+# Navigate to the project directory
+cd Task-2-ReactTS-Links-Vault
+```
+
+```bash
+# Install dependency
+npm install
+```
+
+```bash
+# Run locally
+npm run dev
+```
