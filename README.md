@@ -20,6 +20,11 @@
 
 ---
 
+## Screenshot 
+<p align="center">
+  <img src="./src/assets/linksvault.png" alt="links vault" width="700">
+</p>
+
 ## System Features
 
 ### CRUD Operations
