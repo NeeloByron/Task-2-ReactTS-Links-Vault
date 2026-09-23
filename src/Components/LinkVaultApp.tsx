@@ -5,7 +5,7 @@ import Button from './Inputs/Button';
 import edgeLogo from '@/assets/add-information.svg'
 import notFound from '@/assets/not-found.svg'
 
-
+// LinkItem describes what a link should contain
 interface LinkItem {
   id?: number;
   Title: string;
@@ -16,10 +16,10 @@ interface LinkItem {
 
 export const LinkVaultApp = () => {
      const [items, setItems] = useState<LinkItem[]>(() => {
-      const rawData = localStorage.getItem("items");
+      const rawData = localStorage.getItem("items");  // read the saved text from localStorage
       if (rawData) {
         try {
-          return JSON.parse(rawData);
+          return JSON.parse(rawData); // convert the saved JSON text back into data
         } catch {
           return [];
         }
@@ -31,13 +31,13 @@ export const LinkVaultApp = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<LinkItem | null>(null);
 
-    {/* saving data*/}
+    {/* saving data */}
      useEffect(() => {
       localStorage.setItem ("items", JSON.stringify(items))
      }, [items]);
 
   
-     {/*Add the data*/}
+     {/* Add the data */}
     const addItem = (item: LinkItem) => {
       setItems([...items, { id: Date.now(), ...item }]);
     };
@@ -47,7 +47,7 @@ export const LinkVaultApp = () => {
       const updateItems = items.filter((items)=> items.id !== id);
       setItems(updateItems);
     };
-
+     {/* Editing */}
     const editItem = (id: number, updateFields: Partial<LinkItem>) => {
       const updateItems = items.map((item) => item.id === id ? {...item, ...updateFields } : item);
       setItems(updateItems);
@@ -80,7 +80,6 @@ export const LinkVaultApp = () => {
       setSearchTerm("");
     };
 
-
   return (
          <>
            <div className={'main'}>
@@ -107,12 +106,6 @@ export const LinkVaultApp = () => {
               </div>
 
             </header>
-
-        {/*    <main className={'bodyContainer'}>
-
-               
-              
-            </main>*/} 
 
             <section className={'results'} aria-label='saved-Links'>
                 <Table items={filteredItems} deleteItem={deleteItem} onEditClick={handleStartEdit} />
