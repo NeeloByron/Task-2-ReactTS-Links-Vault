@@ -20,7 +20,7 @@
 .customtd {
     padding: 16px 20px;
     font-size: 14px;
-    color: var(ink);
+    color: var(--ink);
     vertical-align: middle;
     border-bottom: 1px dashed var(--line);
 }
