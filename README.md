@@ -1,7 +1,5 @@
 <h1 align="center">Task 2 - BookMark link vault</h1>
 
-
-
 <p>My application is called URL Archive. The task is about testing ability to build a complete, functional web application using React with TypeScript, handling data persistence and responsive design, while maintaining good code quality and UX principles.</p>
 
 <p align="center">
@@ -10,7 +8,6 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
 </p>
-
 
 ---
 
@@ -55,28 +52,24 @@ Supports all standard breakpoints:
 - **1024px** - Laptops
 - **1200px** - Desktops
 
-## Technologies Used
+## File Structure
+- Main.tsx  
+- App.tsx - LinkVaultApp
+- LinkVaultApp.tsx - manages the saved links, searching, editing, deleting and storage.
+- RecordingMethods.tsx - Displays the popup form for adding or editing links
+- Table.tsx - Displays the links in table rows
+- Button.tsx - A reusable button whose text, appearance and action can change through props.
+- Index.css - styles the overall application
+- Table.module.css - Provides styles scoped to table component.
 
-### Frontend
-- **React 18+** - UI library with hooks and functional components
-- **TypeScript** - Type-safe JavaScript for better maintainability
-- **CSS3** - Custom styling with responsive design
-- **Vite** - Next-generation build tool for faster development
+## Tech Stack
+- React 
+- TypeScript
+- CSS
+- Vite
+- LocalStorage
 
-### Data Management
-- **LocalStorage API** - Client-side data persistence
-- **React Hooks** - State management (useState, useEffect, useContext)
-
-#### Development Tools
-- **Prettier** - Code formatting
-- **Git** - Version control
-
-## Installation & Setup
-### Prerequisites 
-- Node.js (v16.0.0 or higher)
-- npm or yarn package manager
-
-### Steps to Run Locally
+### Steps to Run locally
 
 ```bash
 # Clone the repository
@@ -84,22 +77,16 @@ git clone https://github.com/NeeloByron/Task-2-ReactTS-Links-Vault.git
 ```
 
 ```bash
-# Install dependencies
+# Navigate to the project directory
+cd Task-2-ReactTS-Links-Vault
+```
+
+```bash
+# Install dependency
 npm install
 ```
 
 ```bash
-# Start development server
+# Run locally
 npm run dev
 ```
-
-```bash
-# Build for production
-npm run build
-```
-
-```bash
-# Preview production build
-npm run preview
-```
-

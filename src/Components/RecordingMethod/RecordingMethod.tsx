@@ -1,7 +1,7 @@
 import Button from '@/Components/Inputs/Button'
 import { useEffect, useState } from 'react'
 
-
+// LinkItem describes what a link should contain
 interface LinkItem {
   id?: number;
   Title: string;
@@ -10,6 +10,7 @@ interface LinkItem {
   OptionalTag: string;
 }
 
+// RecordingMethodProps describes what a Prop should contain 
 interface RecordingMethodProps {
   addItem: (item: LinkItem) => void;
   editItem: (id: number, updateFields: Partial<LinkItem>) => void;
